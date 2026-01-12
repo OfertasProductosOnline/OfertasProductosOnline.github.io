@@ -17,7 +17,6 @@ body {
     background: #f2f2f2;
 }
 
-/* HEADER */
 header {
     background: #333;
     color: white;
@@ -25,23 +24,16 @@ header {
     text-align: center;
 }
 
-/* LAYOUT */
 .layout {
     display: flex;
     min-height: calc(100vh - 80px);
 }
 
-/* SIDEBAR */
 .sidebar {
     width: 250px;
     background: #222;
     color: white;
     padding: 20px;
-}
-
-.sidebar h2 {
-    margin-bottom: 15px;
-    text-align: center;
 }
 
 .sidebar ul {
@@ -57,39 +49,28 @@ header {
     background: #444;
 }
 
-.sidebar a {
-    color: white;
-    text-decoration: none;
-}
-
-/* CONTENT */
 .content {
     flex: 1;
     padding: 20px;
 }
 
-/* GRID DE PRODUCTOS */
+/* GRID */
 .section {
     display: none;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
 
-.section:first-child {
+.section.active {
     display: grid;
 }
 
-/* TARJETA */
+/* CARD */
 .product-card {
     background: white;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
 }
 
 .product-card img {
@@ -99,9 +80,7 @@ header {
 }
 
 .product-info h3 {
-    font-size: 16px;
     margin: 10px 0;
-    color: #000;
 }
 
 .product-info a {
@@ -110,12 +89,6 @@ header {
     font-weight: bold;
 }
 
-.product-info h4 {
-    margin-top: 5px;
-    color: #333;
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .layout {
         flex-direction: column;
@@ -130,49 +103,39 @@ header {
 <body>
 
 <header>
-    <h1>Ofertas Productos Online</h1>
+<h1>Ofertas Productos Online</h1>
 </header>
 
 <div class="layout">
 
-<!-- SIDEBAR -->
 <div class="sidebar">
-    <h2>Categorías</h2>
-    <ul>
-        <li onclick="showSection('electrodomesticos')">Electrodomésticos</li>
-        <li onclick="showSection('moda')">Moda</li>
-        <li onclick="showSection('hogar')">Hogar</li>
-        <li onclick="showSection('juguetes')">Juguetes</li>
-        <li onclick="showSection('motor')">Motor</li>
-        <li onclick="showSection('iluminacion')">Iluminación</li>
-    </ul>
+<ul>
+<li onclick="showSection('electrodomesticos')">Electrodomésticos</li>
+<li onclick="showSection('moda')">Moda</li>
+<li onclick="showSection('hogar')">Hogar</li>
+<li onclick="showSection('juguetes')">Juguetes</li>
+<li onclick="showSection('motor')">Motor</li>
+<li onclick="showSection('iluminacion')">Iluminación</li>
+</ul>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
 <!-- ELECTRODOMÉSTICOS -->
-<div id="electrodomesticos" class="section">
+<div id="electrodomesticos" class="section active">
     <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sa3678677ca4f4afcb867b7b5bd991b22l.jpg">
         <div class="product-info">
             <h3>Freidora sin aceite</h3>
-            <a href="https://s.click.aliexpress.com/e/_oEm2kFx" target="_blank">
-                Comprar en AliExpress
-                <h4>53.99 €</h4>
-            </a>
+            <a href="https://s.click.aliexpress.com/e/_oEm2kFx" target="_blank">Comprar – 53.99 €</a>
         </div>
     </div>
 
-  <div id="electrodomesticos" class="section">
     <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/S9f00bb5ee66f4fe889dd300e8aae93b17.jpg">
         <div class="product-info">
             <h3>Cafetera de goteo</h3>
-            <a href="https://s.click.aliexpress.com/e/_oEyDpip" target="_blank">
-                Comprar en AliExpress
-                <h4>32.99 €</h4>
-            </a>
+            <a href="https://s.click.aliexpress.com/e/_oEyDpip" target="_blank">Comprar – 32.99 €</a>
         </div>
     </div>
 </div>
@@ -183,38 +146,7 @@ header {
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/S43cad47ab78b4a2a91ecc2b90a870df0v.jpg">
         <div class="product-info">
             <h3>Vestido mujer</h3>
-            <a href="https://s.click.aliexpress.com/e/_ol4dWZB" target="_blank">
-                Comprar en AliExpress
-                <h4>12.59 €</h4>
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- HOGAR -->
-<div id="hogar" class="section">
-    <div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/E8762a5331ab5460db8a80c472102567f1.jpg">
-        <div class="product-info">
-            <h3>Árbol rascador</h3>
-            <a href="https://s.click.aliexpress.com/e/_okjrvit" target="_blank">
-                Comprar en AliExpress
-                <h4>35.25 €</h4>
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- JUGUETES -->
-<div id="juguetes" class="section">
-    <div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sd29329d5d56e463ba45ef38a304e0526Y.jpg">
-        <div class="product-info">
-            <h3>Pokemon GBC</h3>
-            <a href="https://s.click.aliexpress.com/e/_okYTJXJ" target="_blank">
-                Comprar en AliExpress
-                <h4>11.49 €</h4>
-            </a>
+            <a href="https://s.click.aliexpress.com/e/_ol4dWZB" target="_blank">Comprar – 12.59 €</a>
         </div>
     </div>
 </div>
@@ -225,60 +157,26 @@ header {
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sb9b0ee27f7d542ebb36c0d6bd27f8f5fo.jpg">
         <div class="product-info">
             <h3>Dash Cam 4K</h3>
-            <a href="https://s.click.aliexpress.com/e/_oFvmH2H" target="_blank">
-                Comprar en AliExpress
-                <h4>78.89 €</h4>
-            </a>
+            <a href="https://s.click.aliexpress.com/e/_oFvmH2H" target="_blank">Comprar – 78.89 €</a>
         </div>
     </div>
-</div>
-<div id="motor" class="section">
-<div class="product-card">
+
+    <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/Ec585736b54a047fc865941b0929835186.jpg">
         <div class="product-info">
-            <h3>Baliza de emergencia V16 Geolocalización DGT 3.0</h3>
-            <a href="https://s.click.aliexpress.com/e/_c3HCltXp" target="_blank">
-                Comprar en AliExpress
-                <h4>30,03 €</h4>
-            </a>
+            <h3>Baliza emergencia V16</h3>
+            <a href="https://s.click.aliexpress.com/e/_c3HCltXp" target="_blank">Comprar – 30.03 €</a>
         </div>
     </div>
 </div>
-<div id="motor" class="section">
-<div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sd5a52862cf9946bfbb24aad49c564ed9G.jpg">
-        <div class="product-info">
-            <h3>Inflador de neumáticos digital</h3>
-            <a href="https://s.click.aliexpress.com/e/_c3AtVIjV="_blank">
-                Comprar en AliExpress
-                <h4>15,86 €</h4>
-            </a>
-        </div>
-    </div>
-</div>
-<div id="motor" class="section">
-<div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sf396210a1bf14be18fd08899d2cb754du.jpg_220x220q75.jpg_.avif">
-        <div class="product-info">
-            <h3>Android y GPS para coche, autorradio estéreo Universal con CarPlay</h3>
-            <a href="https://s.click.aliexpress.com/e/_c4SpznVV="_blank">
-                Comprar en AliExpress
-                <h4>60,88 €</h4>
-            </a>
-        </div>
-    </div>
-</div>    
 
 <!-- ILUMINACIÓN -->
 <div id="iluminacion" class="section">
     <div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S27aa9ea7ff7447368a89fb752a5d2e70B.png_220x220.png_.avif">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S27aa9ea7ff7447368a89fb752a5d2e70B.png">
         <div class="product-info">
             <h3>Cabeza móvil RGBW</h3>
-            <a href="https://s.click.aliexpress.com/e/_c334YoXl" target="_blank">
-                Comprar en AliExpress
-                <h4>94,74 €</h4>
-            </a>
+            <a href="https://s.click.aliexpress.com/e/_c334YoXl" target="_blank">Comprar – 94.74 €</a>
         </div>
     </div>
 </div>
@@ -288,8 +186,8 @@ header {
 
 <script>
 function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.getElementById(id).style.display = 'grid';
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
 </script>
 
