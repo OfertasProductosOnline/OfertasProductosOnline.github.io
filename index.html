@@ -111,7 +111,7 @@ header {
 <!-- MENÚ -->
 <div class="sidebar">
 <ul>
-    <li onclick="showSection('inicio')">Todos los productos</li>
+    <li onclick="showSection('inicio')">Inicio</li>
     <li onclick="showSection('electrodomesticos')">Electrodomésticos</li>
     <li onclick="showSection('moda')">Moda</li>
     <li onclick="showSection('motor')">Motor</li>
@@ -125,6 +125,7 @@ header {
 <!-- INICIO (TODOS LOS PRODUCTOS) -->
 <div id="inicio" class="section active">
 
+    <!-- Electrodomésticos -->
     <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sa3678677ca4f4afcb867b7b5bd991b22l.jpg">
         <div class="product-info">
@@ -141,6 +142,7 @@ header {
         </div>
     </div>
 
+    <!-- Moda -->
     <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/S43cad47ab78b4a2a91ecc2b90a870df0v.jpg">
         <div class="product-info">
@@ -149,6 +151,7 @@ header {
         </div>
     </div>
 
+    <!-- Motor -->
     <div class="product-card">
         <img src="https://ae-pic-a1.aliexpress-media.com/kf/Scde115eca2f54f659c6d5340a088ad49f.jpg">
         <div class="product-info">
@@ -157,7 +160,34 @@ header {
         </div>
     </div>
 
+    <div class="product-card">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Ec585736b54a047fc865941b0929835186.jpg">
+        <div class="product-info">
+            <h3>Baliza emergencia V16</h3>
+            <a href="https://s.click.aliexpress.com/e/_c3HCltXp" target="_blank">Comprar – 30.03 €</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sd5a52862cf9946bfbb24aad49c564ed9G.jpg">
+        <div class="product-info">
+            <h3>Inflador de neumáticos</h3>
+            <a href="https://s.click.aliexpress.com/e/_c3pp7F5V" target="_blank">Comprar – 15.86 €</a>
+        </div>
+    </div>
+
+    <!-- Iluminación -->
+    <div class="product-card">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S27aa9ea7ff7447368a89fb752a5d2e70B.png">
+        <div class="product-info">
+            <h3>Cabeza móvil RGBW</h3>
+            <a href="https://s.click.aliexpress.com/e/_c334YoXl" target="_blank">Comprar – 94.74 €</a>
+        </div>
+    </div>
+
 </div>
+
+<!-- SECCIONES INDIVIDUALES -->
 
 <!-- ELECTRODOMÉSTICOS -->
 <div id="electrodomesticos" class="section">
@@ -205,4 +235,57 @@ header {
     </div>
 
     <div class="product-card">
-        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Ec585736b54a047fc865941b0929835186.
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Ec585736b54a047fc865941b0929835186.jpg">
+        <div class="product-info">
+            <h3>Baliza emergencia V16</h3>
+            <a href="https://s.click.aliexpress.com/e/_c3HCltXp" target="_blank">Comprar – 30.03 €</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sd5a52862cf9946bfbb24aad49c564ed9G.jpg">
+        <div class="product-info">
+            <h3>Inflador de neumáticos</h3>
+            <a href="https://s.click.aliexpress.com/e/_c3pp7F5V" target="_blank">Comprar – 15.86 €</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- ILUMINACIÓN -->
+<div id="iluminacion" class="section">
+
+    <div class="product-card">
+        <img src="https://ae-pic-a1.aliexpress-media.com/kf/S27aa9ea7ff7447368a89fb752a5d2e70B.png">
+        <div class="product-info">
+            <h3>Cabeza móvil RGBW</h3>
+            <a href="https://s.click.aliexpress.com/e/_c334YoXl" target="_blank">Comprar – 94.74 €</a>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    const selected = document.getElementById(id);
+    if (selected) selected.classList.add('active');
+}
+</script>
+
+</body>
+</html>
+
+
+
+  
+  
+  
+
+         
+      
