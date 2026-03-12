@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Online - Ofertas</title>
+    <title>Tienda Online | Ofertas</title>
 
     <style>
         * {
@@ -13,134 +13,112 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f6;
             color: #333;
         }
 
         header {
-            background: #1a1a1a;
+            background: #232f3e;
             color: white;
-            padding: 1.5rem;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .banner-link { text-decoration: none; }
+        .banner {
+            background: #febd69;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #111;
         }
 
         .layout {
             display: flex;
-            min-height: calc(100vh - 80px);
+            min-height: calc(100vh - 120px);
         }
 
-        /* BARRA LATERAL */
+        /* SIDEBAR */
         .sidebar {
-            width: 250px;
-            background: #2c3e50;
-            color: white;
+            width: 260px;
+            background: #fff;
+            border-right: 1px solid #ddd;
             padding: 20px;
         }
 
-        .sidebar h2 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #555;
-            padding-bottom: 10px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
+        .sidebar ul { list-style: none; }
         .sidebar ul li {
-            padding: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 5px;
+            padding: 12px 15px;
             margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-weight: 500;
         }
 
-        .sidebar ul li:hover {
-            background: #34495e;
-            padding-left: 20px;
-        }
+        .sidebar ul li:hover { background: #f0f2f2; color: #007185; }
+        .sidebar ul li.active-menu { background: #e7f4f5; color: #007185; border: 1px solid #007185; }
 
-        .sidebar ul li.active-menu {
-            background: #3498db;
-        }
-
-        /* CONTENIDO PRINCIPAL */
-        .content {
-            flex: 1;
-            padding: 25px;
-        }
+        /* CONTENIDO */
+        .content { flex: 1; padding: 30px; }
 
         .section {
-            display: none; /* Oculto por defecto */
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 25px;
-            animation: fadeIn 0.5s;
         }
 
-        .section.active {
-            display: grid; /* Se muestra cuando tiene la clase active */
-        }
+        .section.active { display: grid; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* TARJETAS DE PRODUCTO */
+        /* PRODUCTOS */
         .product-card {
             background: white;
-            border-radius: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             transition: transform 0.2s;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .product-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: contain;
             margin-bottom: 15px;
         }
 
         .product-info h3 {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            height: 40px;
+            font-size: 0.95rem;
+            height: 45px;
             overflow: hidden;
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         .btn-buy {
-            display: block;
+            margin-top: auto;
+            background: #ffd814;
+            border: 1px solid #fcd200;
+            color: #0f1111;
             text-align: center;
+            padding: 8px;
             text-decoration: none;
-            background: #0b35df;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .btn-buy:hover {
-            background: #0624a3;
-        }
+        .btn-buy:hover { background: #f7ca00; }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .layout { flex-direction: column; }
-            .sidebar { width: 100%; }
-            .sidebar ul { display: flex; flex-wrap: wrap; gap: 5px; }
-            .sidebar ul li { flex: 1; text-align: center; font-size: 0.9rem; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #ddd; }
+            .sidebar ul { display: flex; overflow-x: auto; padding-bottom: 10px; }
+            .sidebar ul li { white-space: nowrap; }
         }
     </style>
 </head>
@@ -150,27 +128,47 @@
     <h1>Ofertas Productos Online</h1>
 </header>
 
-<div class="layout">
-    <div class="sidebar">
-        <h2>Categorías</h2>
-        <ul>
-            <li onclick="showSection('inicio')" id="menu-inicio" class="active-menu">Inicio</li>
-            <li onclick="showSection('tecnologia')" id="menu-tecnologia">Tecnología</li>
-            <li onclick="showSection('accesorios')" id="menu-accesorios">Accesorios</li>
-            <li onclick="showSection('motor')" id="menu-motor">Motor</li>
-            <li onclick="showSection('iluminacion')" id="menu-iluminacion">Iluminación</li>
-            <li onclick="showSection('ropa')" id="menu-ropa">Ropa</li>
-        </ul>
+<a href="https://temu.to/k/eb2ip7e0gb1" target="_blank" class="banner-link">
+    <div class="banner">
+        🔥 TEMU: 30% Dto. Nuevos usuarios - ¡Aprovecha ahora!
     </div>
+</a>
 
-    <div class="content">
+<div class="layout">
+    <nav class="sidebar">
+        <ul>
+            <li onclick="showSection('inicio')" id="btn-inicio" class="active-menu">Inicio (Todo)</li>
+            <li onclick="showSection('tecnologia')" id="btn-tecnologia">Tecnología</li>
+            <li onclick="showSection('accesorios')" id="btn-accesorios">Accesorios</li>
+            <li onclick="showSection('motor')" id="btn-motor">Motor</li>
+            <li onclick="showSection('iluminacion')" id="btn-iluminacion">Iluminación</li>
+            <li onclick="showSection('ropa')" id="btn-ropa">Ropa</li>
+        </ul>
+    </nav>
 
-        <div id="inicio" class="section active">
+    <main class="content">
+        <div id="inicio" class="section active"></div>
+
+        <div id="tecnologia" class="section">
             <div class="product-card">
                 <img src="https://ae-pic-a1.aliexpress-media.com/kf/A34628340364946c9a093d83249fc5908Q.jpg">
                 <div class="product-info">
                     <h3>Freidora sin aceite</h3>
                     <a href="https://s.click.aliexpress.com/e/_c4P5XH6r" target="_blank" class="btn-buy">Comprar – 69.99 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S099633f57e51443884ded27841c961a2M.jpg_220x220q75.jpg_.avif">
+                <div class="product-info">
+                    <h3>Waflera</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3rOUyOx" target="_blank" class="btn-buy">Comprar – 18.79 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S07aae8a259854d46b76971b548af4ba6M.jpg">
+                <div class="product-info">
+                    <h3>Xiaomi TV A 32</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4PEbLhV" target="_blank" class="btn-buy">Comprar – 113.79 €</a>
                 </div>
             </div>
             <div class="product-card">
@@ -180,21 +178,11 @@
                     <a href="https://s.click.aliexpress.com/e/_c4BXF5y3" target="_blank" class="btn-buy">Comprar – 31.57 €</a>
                 </div>
             </div>
-            </div>
-
-        <div id="tecnologia" class="section">
             <div class="product-card">
-                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S07aae8a259854d46b76971b548af4ba6M.jpg">
+                <img src="https://img.kwcdn.com/product/201a0da9a21/e201ec1e-382f-4957-af5e-e0ae7e2c0665_800x800.jpeg?imageView2/2/w/800/q/70/format/avif">
                 <div class="product-info">
-                    <h3>Xiaomi TV A 32</h3>
-                    <a href="https://s.click.aliexpress.com/e/_c4PEbLhV" target="_blank" class="btn-buy">Comprar – 113.79 €</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S099633f57e51443884ded27841c961a2M.jpg_220x220q75.jpg_.avif">
-                <div class="product-info">
-                    <h3>Waflera</h3>
-                    <a href="https://s.click.aliexpress.com/e/_c3rOUyOx" target="_blank" class="btn-buy">Comprar – 18.79 €</a>
+                    <h3>Power Bank KOILAGER 10000Mah</h3>
+                    <a href="https://temu.to/k/e4yne6wkg49" target="_blank" class="btn-buy">Comprar – 17.18 €</a>
                 </div>
             </div>
         </div>
@@ -210,8 +198,57 @@
             <div class="product-card">
                 <img src="https://ae-pic-a1.aliexpress-media.com/kf/S939fdc00b3fb4604aea1a2d6265e720a7.jpg">
                 <div class="product-info">
-                    <h3>Caja arena autolimpiante</h3>
+                    <h3>Caja de arena autolimpiante</h3>
                     <a href="https://s.click.aliexpress.com/e/_c4PBNQor" target="_blank" class="btn-buy">Comprar – 126.39 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sa692bc29d8ec4022b1f0a0c215a85640j.jpg">
+                <div class="product-info">
+                    <h3>Cámara robot mascotas</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4TnESQ3" target="_blank" class="btn-buy">Comprar – 48.59 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S6b037d81e823485b89135c9dd4677a28o.png_220x220.png_.avif">
+                <div class="product-info">
+                    <h3>Tableta Digital Bluetooth A5</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4lqGKzD" target="_blank" class="btn-buy">Comprar – 51.69 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S83e544c6fdc84513b31aca1f3e555a67c.jpg">
+                <div class="product-info">
+                    <h3>Caja SHARGE-SSD Externo</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4o69kFd" target="_blank" class="btn-buy">Comprar – 39.19 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S909340eb34474c2baafa90d07632b314A.jpg">
+                <div class="product-info">
+                    <h3>Pulsador Bluetooth</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3ZJgYBH" target="_blank" class="btn-buy">Comprar – 6.99 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S9fe7f4b9be4a4391a91f4a8a0baccbc5h.png">
+                <div class="product-info">
+                    <h3>Destornilladores 78 en 1</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3oZ4ctD" target="_blank" class="btn-buy">Comprar – 34.19 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/A86dd781811a947feac73d86cf623bc44c.jpg_220x220q75.jpg_.avif">
+                <div class="product-info">
+                    <h3>Torre Gatos 210 cm</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c30cvId1" target="_blank" class="btn-buy">Comprar – 71.08 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.kwcdn.com/product/fancy/3a6ccf83-9d2f-4800-9af2-93f344ed8a95.jpg?imageView2/2/w/800/q/70/format/avif">
+                <div class="product-info">
+                    <h3>Cama Gatos Autocalentable</h3>
+                    <a href="https://temu.to/k/ejlq49dhpd5" target="_blank" class="btn-buy">Comprar – 2.72 €</a>
                 </div>
             </div>
         </div>
@@ -227,8 +264,43 @@
             <div class="product-card">
                 <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sd5a52862cf9946bfbb24aad49c564ed9G.jpg">
                 <div class="product-info">
-                    <h3>Inflador de neumáticos</h3>
+                    <h3>Inflador neumáticos</h3>
                     <a href="https://s.click.aliexpress.com/e/_c3pp7F5V" target="_blank" class="btn-buy">Comprar – 15.86 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sbe57f64a20e64981acb75f3affe0e99fP.jpg_220x220q75.jpg_.avif">
+                <div class="product-info">
+                    <h3>Cárter Motor Yamaha FJ09</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3uLl1bp" target="_blank" class="btn-buy">Comprar – 48.39 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sea222068d1524ef2bae6d4ac7d411ae9s.jpg">
+                <div class="product-info">
+                    <h3>Bombillas LED coche</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3Yph4KL" target="_blank" class="btn-buy">Comprar – 5.29 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S58b41f7b6e8e43898ae8303ad53c530aV.jpg_220x220q75.jpg_.avif">
+                <div class="product-info">
+                    <h3>Radio Android 11,4"</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4kTQnGT" target="_blank" class="btn-buy">Comprar – 2067.39 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S9e78e224b0c94ec6af80a0faf64667feG.jpg">
+                <div class="product-info">
+                    <h3>Radio BMW Serie 2</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3RNoVnp" target="_blank" class="btn-buy">Comprar – 189.39 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S6fbd0c0cadfe4a3c89f1987fc87ff9b9s.jpg">
+                <div class="product-info">
+                    <h3>EAFC Arrancador Batería</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c2JcHyof" target="_blank" class="btn-buy">Comprar – 18.29 €</a>
                 </div>
             </div>
         </div>
@@ -241,6 +313,27 @@
                     <a href="https://s.click.aliexpress.com/e/_c334YoXl" target="_blank" class="btn-buy">Comprar – 94.74 €</a>
                 </div>
             </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sbff24e814ce4414ca5549d19d3d55f56z.jpg">
+                <div class="product-info">
+                    <h3>LED RGBIC WS2811 5M</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4ElrPD9" target="_blank" class="btn-buy">Comprar – 31.99 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S7418dc22eaf14e0c93495449437f8f5eE.jpg">
+                <div class="product-info">
+                    <h3>Controlador 192 DMX</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c4rWcit1" target="_blank" class="btn-buy">Comprar – 27.11 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.kwcdn.com/product/algo_framework/ImageCm2InAlgo/f41a789a-b09f-11f0-806f-0a580aaf1577.jpg?imageView2/2/w/800/q/70/format/avif">
+                <div class="product-info">
+                    <h3>Bombilla LED Coche (Temu)</h3>
+                    <a href="https://temu.to/k/emf4q3x1hn9" target="_blank" class="btn-buy">Comprar – 7.76 €</a>
+                </div>
+            </div>
         </div>
 
         <div id="ropa" class="section">
@@ -251,34 +344,54 @@
                     <a href="https://s.click.aliexpress.com/e/_c45L7ecX" target="_blank" class="btn-buy">Comprar – 14.95 €</a>
                 </div>
             </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S067819a4954140dfbe7c0fade0b087a7c.jpg">
+                <div class="product-info">
+                    <h3>Camiseta UPTEMPO</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3zsMWuX" target="_blank" class="btn-buy">Comprar – 8.19 €</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://ae-pic-a1.aliexpress-media.com/kf/S2aaff11a96b64a6e980a1ece02732a0aX.jpg_220x220q75.jpg_.avif">
+                <div class="product-info">
+                    <h3>Camiseta Gabber</h3>
+                    <a href="https://s.click.aliexpress.com/e/_c3Ozdeqx" target="_blank" class="btn-buy">Comprar – 7.89 €</a>
+                </div>
+            </div>
         </div>
 
-    </div> </div> <script>
-    function showSection(id) {
-        // 1. Ocultar todas las secciones
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            section.classList.remove('active');
+    </main>
+</div>
+
+<script>
+    // Función para llenar la sección INICIO con todos los productos de las demás secciones
+    function fillInicio() {
+        const inicioDiv = document.getElementById('inicio');
+        const allProducts = document.querySelectorAll('.section:not(#inicio) .product-card');
+        
+        allProducts.forEach(prod => {
+            const clone = prod.cloneNode(true);
+            inicioDiv.appendChild(clone);
         });
-
-        // 2. Quitar clase activa del menú
-        const menuItems = document.querySelectorAll('.sidebar ul li');
-        menuItems.forEach(item => {
-            item.classList.remove('active-menu');
-        });
-
-        // 3. Mostrar la sección seleccionada
-        const selectedSection = document.getElementById(id);
-        if (selectedSection) {
-            selectedSection.classList.add('active');
-        }
-
-        // 4. Marcar botón del menú como activo
-        const activeMenu = document.getElementById('menu-' + id);
-        if (activeMenu) {
-            activeMenu.classList.add('active-menu');
-        }
     }
+
+    // Función para cambiar de categoría
+    function showSection(id) {
+        // Ocultar todas
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        // Mostrar la elegida
+        document.getElementById(id).classList.add('active');
+        
+        // Actualizar menú
+        document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active-menu'));
+        document.getElementById('btn-' + id).classList.add('active-menu');
+
+        // Scroll arriba
+        window.scrollTo(0, 0);
+    }
+
+    // Al cargar la página
+    window.onload = fillInicio;
 </script>
 
 </body>
